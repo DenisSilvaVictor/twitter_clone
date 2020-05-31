@@ -1,0 +1,74 @@
+<div class='container' style="font-size:10pt">
+    <div class='row justify-content-center align-items-center h-100'>
+        <div class='col-md-6 justify-content-center'>
+            <form action="\cadastrar" method="Post" class='p-4 border'>
+
+                <div class='text-center' style="color:rgba(29,161,242,1.00);">
+                    <i id='icone' class="fab fa-twitter fa-3x mb-3"></i>
+                </div>
+
+                <h3 class='mb-4'>Crie sua conta</h3>
+
+                <div class='form-group'>
+                    <input type="text" name="nome" id="nome" class='form-control' placeholder='Nome'>
+                </div>
+
+                <div class='form-group'>
+                    <input type="password" name="senha" id="senha" class='form-control' placeholder='Password'>
+                </div>
+
+                <div class='form-group'>
+                    <input type="email" name="email" id="email" class='form-control' placeholder='E-mail'>
+                </div>
+
+                <p class='text-justify '>
+                    Ao inscrever-se você concorda com os Termos de Serviço e com as Polítcas de Privacidade incluindo o Uso de Cookies. Outras pessoas poderão encrontrar você pelo e-mail ou número de telefone fornencendo Opções privadas.
+                </p>
+
+                <?php  
+                    $conteudoErro = '';
+                    if (isset($_GET['erro'])) { 
+                        switch($_GET['erro']){
+                            case 'erro1':
+                                $conteudoErro = "
+                                    <div class='alert alert-danger'>
+                                        Preencha todos os campos antes de avançar.                  
+                                    </div>
+                                ";
+                                break;
+                            
+                            case 'nome e email':
+                                $conteudoErro = "
+                                    <div class='alert alert-danger'>
+                                        Nome e email já existente.                
+                                    </div>
+                                ";
+                                break;
+                        
+                            case 'email':
+                                $conteudoErro = "
+                                    <div class='alert alert-danger'>
+                                        Email já existente                  
+                                    </div>
+                                ";
+                                break;
+
+                            case 'nome':
+                                $conteudoErro = "
+                                    <div class='alert alert-danger'>
+                                        Nome já existente.               
+                                    </div>
+                                ";
+                                break;
+                            default:
+                                $conteudoErro = '' ;
+                        }
+                    }
+                    echo $conteudoErro;
+                ?>
+
+                <input type="submit" class='btn btn-primary w-100' value="inscrever-se">
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+
+<html lang="pt-br">
+    <head>
+        <!-- Meta tags Obrigatórias -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!-- Style Css-->
+        <link rel="stylesheet" href=" <?= ucfirst($this->viewObj->page) . 'Style.css'?>">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/twitter.png" type="image/x-icon">
+        
+        <title>Olá, mundo!</title>
+  </head>
+  <body>
+        
+        <header class="mb-3 border-bottom">
+            <div class="container p-1">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="/timeline" class="nav-link">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/deslogar" class="nav-link">sair</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <section >
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <div class="border">
+                            <div id='parteAzul'>
+                
+                            </div>
+                            <div class="p-2">
+                                <h5 class="pb-1"><?= $this->viewObj->nome_usuario ?></h5>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <small>
+                                            Twetts
+                                        </small>
+                                        <div class="pt-2">
+                                            <h5 class="color-blue"><?=  $this->viewObj->quantidadeTwitts ?></h5>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <small>
+                                            Seguindo
+                                        </small> 
+                                        <div class="pt-2">
+                                            <h5 class="color-blue"><?= $this->viewObj->quantidadeSeguindo ?></h5>
+                                        </div>  
+                                    </div>
+                                    <div>
+                                        <small>
+                                            Seguidores
+                                        </small>
+                                        <div class="pt-2">
+                                            <h5 class="color-blue"><?= $this->viewObj->quantidadeSeguidores ?></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?= $this->content()?>
+                </div>
+            </div>
+        </section>
+    
+    
+        <!-- JavaScript (Opcional) -->
+        <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

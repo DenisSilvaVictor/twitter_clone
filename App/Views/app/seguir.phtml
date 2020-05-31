@@ -1,0 +1,47 @@
+
+<div class="col-md-6">
+    <form action="/seguir" method="POST" class='border p-4'>        
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="quemseguir" placeholder="Quem você está procurando?" >
+            <div class="input-group-append">
+                <input type="submit" value="pesquisar" class='btn btn-primary'>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <?php foreach($this->viewObj->usuarios as $key => $usuario){ ?>
+            <div class='border seguir p-4 mb-4'>
+                <ul class='nav d-flex justify-content-end align-items-center'>
+                    <li class='nav-item mr-auto'>
+                        <?= $usuario['nome']?>
+                    </li>
+                    <?php 
+                        $condicao = true;
+                        foreach($this->viewObj->AllSeguindo as $key => $seguindo){
+                            if($seguindo['id_usuario_seguido'] == $usuario['id']){
+                                $condicao = false;
+                                break;
+                            }
+                        } 
+                        
+                        if($condicao){
+                            echo "
+                                <li class='nav-item text-white'>
+                                <a href='/seguir?id_seguido=$usuario[id]' class='btn btn-success btn-sm mr-2'>seguir</a>
+                                </li>
+                            ";
+                        }else{
+                            echo "
+                                <li class='nav-item text-white'>
+                                    <a href='/seguir?nao_seguir=$usuario[id]' class='btn btn-danger btn-sm'>deixar de seguir</a>
+                                </li>
+                            ";
+                        }
+                    ?>
+                </ul>
+            </div>
+
+        <?php }?>
+    </div>
+</div>

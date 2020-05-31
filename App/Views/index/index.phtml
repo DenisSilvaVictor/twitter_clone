@@ -1,0 +1,85 @@
+
+<div class='row h-100'>
+
+    <div id='area1' class='col-md-6'>
+        <div id='container-area1' class='container'>
+            <div class='row h-75 text-white align-items-end '>
+                <div id='vantagens' class='col-md-12 pb-4'>
+                    <p class='d-flex'>
+                        <i class="far fa-comment fa-2x mr-3"></i>
+                        <strong>
+                            Siga o que lhe interessa.
+                        </strong>
+                    </p>
+
+                    <p class='d-flex'>
+                        <i class="fas fa-user-friends fa-2x mr-3"></i>
+                        <strong>
+                            Saiba o que as pessoas estão falando.
+                        </strong>
+                    </p>
+
+                    <p class='d-flex'>
+                        <i class="fas fa-search fa-2x mr-3"></i>
+                        <strong>
+                            Participe de conversas.
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id='area2' class='col-md-6 '>
+        <div id='container-area2' class='container'>
+            <form action="/logar" method="POST"  class='row form-inline'>
+                <div class='col-md-4 form-group mr-auto'>
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" name="email" id="email" class='form-control' placeholder='E-mail'>
+                </div>
+
+                <div class='col-md-4 form-group mx-auto'>
+                    <label for="senha" class="sr-only">senha</label>
+                    <input type="password" name="senha" id="senha" class='form-control' placeholder='Password'>
+                </div>
+
+                <div class='col-md-2 form-group ml-auto'>
+                    <input type="submit" class='btn btn-primary'>
+                </div>
+            </form>
+            <?php 
+
+                if(isset($_GET['login'])){
+                    $conteudo_erro = '';
+                    switch($_GET['login']){
+                        case 'erro_1':
+                            $conteudo_erro = 'Preencha todos os dados antes de continuar.';
+                            break;
+                        case 'erro_2':
+                            $conteudo_erro = 'Email e/ou senha invalido(s).';
+                        break;
+                    }
+            ?>
+                <div class="text-danger text-center" style="position:absolute ">
+                    <p>
+                        <?=$conteudo_erro?>
+                    </p>
+                </div>
+               
+            <?php }?>
+            <div id="texto-area2" class='row justify-content-md-center'>
+                <div class='col-10'>
+                    <i id='icone' class="fab fa-twitter fa-3x mb-3"></i>
+                    <h2 class='mb-4'>Veja o que está acontecendo no mundo agora</h2>
+
+                    <p class='text-dark'><strong> Participe hoje do twitter. </strong></p>
+                    <a href="/inscreverse">
+                        <button class='btn btn-primary w-100'>
+                                inscrever-se
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
